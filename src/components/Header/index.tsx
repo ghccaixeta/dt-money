@@ -2,6 +2,7 @@ import { HeaderContainer, HeaderContent, NewTransactionButton } from "./styles";
 import logo from '../../assets/icons/Logo.svg'
 import { Plus } from "phosphor-react";
 import * as Dialog from '@radix-ui/react-dialog';
+import { TransactionModal } from "../TransactionModal";
 
 
 export function Header() {
@@ -17,13 +18,7 @@ export function Header() {
                             Nova transação
                         </NewTransactionButton>
                     </Dialog.Trigger>
-                    <Dialog.Portal>
-                        <Dialog.Overlay />
-                        <Dialog.Content>
-                            <Dialog.Title>Nova transação</Dialog.Title>
-                            <Dialog.Close />
-                        </Dialog.Content>
-                    </Dialog.Portal>
+                    <TransactionModal />
 
                 </Dialog.Root>
             </HeaderContent>
