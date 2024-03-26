@@ -47,6 +47,9 @@ export const Content = styled(Dialog.Content)`
             }
         }
 
+        
+        
+        
         button[type="submit"]{
             height: 58px;
             border: 0;
@@ -57,8 +60,13 @@ export const Content = styled(Dialog.Content)`
             padding: 0 1.25rem;
             margin-top: 1.5rem;
             cursor: pointer;
-
-            &:hover{
+            
+            &:disabled{
+                opacity: 0.7;
+                cursor: wait;
+            }
+            
+            &:not(:disabled):hover{
                 background: ${props => props.theme['green-700']};
             }
         }
