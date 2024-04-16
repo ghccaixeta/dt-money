@@ -3,11 +3,13 @@ import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary'
 import { PriceHighlight, TransactinTable, TransactionContainer } from './styles'
 import { TransactionContext } from '../../contexts/TransactionContext'
-import { useContext } from 'react'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
+import { useContextSelector } from 'use-context-selector'
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionContext)
+  const transactions = useContextSelector(TransactionContext, (context) => {
+    return context.transactions
+  })
 
   return (
     <div>
@@ -28,7 +30,7 @@ export function Transactions() {
                     </PriceHighlight>
                   </td>
                   <td>{t.category}</td>
-                  <td>{dateFormatter.format(new Date(t.created_at))}</td>
+                  <td>{dateFormatter.format(new Date(t.created_at!))}</td>
                 </tr>
               )
             })}
